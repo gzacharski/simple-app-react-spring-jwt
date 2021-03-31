@@ -1,3 +1,4 @@
 import Home from "./Home";
+import { PrivatePage } from "./PrivatePage";
 
-export { Home };
+export { Home, PrivatePage };
