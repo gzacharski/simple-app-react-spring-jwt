@@ -1,7 +1,7 @@
 import React from "react";
 import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { LoginForm } from "src/components";
+import { LoginForm } from "src/main/components";
 
 test("LoginForm renders without crashing", () => {
   render(<LoginForm />);
