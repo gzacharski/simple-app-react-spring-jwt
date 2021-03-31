@@ -5,8 +5,8 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { LoginForm, RegistrationForm, NavButton } from "src/components";
-import { Home } from "src/pages";
+import { LoginForm, RegistrationForm, NavButton } from "src/main/components";
+import { Home } from "src/main/pages";
 
 function App() {
   return (
