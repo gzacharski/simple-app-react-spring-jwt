@@ -9,7 +9,7 @@ type LinkProp = {
 export default function NavButton({ name, to }: LinkProp) {
   return (
     <div>
-      <Link className="btn btn-primary m-1" to={to}>
+      <Link className="btn btn-primary btn-block m-1" to={to}>
         {name}
       </Link>
     </div>
