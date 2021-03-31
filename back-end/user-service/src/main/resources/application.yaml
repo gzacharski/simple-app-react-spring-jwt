@@ -29,5 +29,6 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 #custom settings
-token.expiration-time=3600000
-token.secret=randomlyGeneratedSecretTokenToSecureCovidApplicationg
+token:
+  expiration-time: 3600000
+  secret: randomlyGeneratedSecretTokenToSecureCovidApplication
