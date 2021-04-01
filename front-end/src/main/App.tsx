@@ -6,7 +6,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import { LoginForm, RegistrationForm, NavButton } from "src/main/components";
-import { Home } from "src/main/pages";
+import { Home, PrivatePage } from "src/main/pages";
+import { AuthProviderImpl } from "src/main/auth";
 
 function App() {
   return (
@@ -17,21 +18,25 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <Router>
-          <div className="col-2">
-            <NavButton to="/" name="Home" />
-            <NavButton to="/login" name="Log in" />
-            <NavButton to="/sign-up" name="Sign up" />
-          </div>
-          <div className="col-10">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/login" component={LoginForm} />
-              <Route path="/sign-up" component={RegistrationForm} />
-              <Redirect to="/" />
-            </Switch>
-          </div>
-        </Router>
+        <AuthProviderImpl>
+          <Router>
+            <div className="col-2">
+              <NavButton to="/" name="Home" />
+              <NavButton to="/login" name="Log in" />
+              <NavButton to="/sign-up" name="Sign up" />
+              <NavButton to="/private" name="Private" />
+            </div>
+            <div className="col-10">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/login" component={LoginForm} />
+                <Route path="/sign-up" component={RegistrationForm} />
+                <Route path="/private" component={PrivatePage} />
+                <Redirect to="/" />
+              </Switch>
+            </div>
+          </Router>
+        </AuthProviderImpl>
       </div>
     </div>
   );
