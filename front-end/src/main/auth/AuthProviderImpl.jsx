@@ -19,12 +19,19 @@ export default class AuthProviderImpl extends Component {
 
   authenticate = (credentials: credentialsType) => {
     return Axios.post(authUrl, credentials).then((response) => {
-      if (response.data.success === true) {
+      console.log(response);
+      if(response.status.valueOf(200)){
         this.setState({
           isAuthenticated: true,
-          authorizationToken: response.data.token,
+          authorizationToken: response.headers.Authorization
         });
         return true;
+      // if (response.data.success === true) {
+      //   this.setState({
+      //     isAuthenticated: true,
+      //     authorizationToken: response.data.token,
+      //   });
+      //   return true;
       } else {
         throw new Error("Nieprawidłowe dane uwierzytelniające!");
       }
@@ -33,7 +40,7 @@ export default class AuthProviderImpl extends Component {
 
   signout = () => {
     this.setState({
-      isAuthenticated: true,
+      isAuthenticated: false,
       authorizationToken: null,
     });
   };
