@@ -32,20 +32,20 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.cors();
         http.csrf().disable();
+        http.headers().frameOptions().disable();
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/users/**").permitAll()
+                .antMatchers("/users/**").permitAll()
                 .and()
                 .addFilter(getAuthenticationFilter());
-
-        http.headers().frameOptions().disable();
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
 
-        AuthenticationFilter authenticationFilter=
-                new AuthenticationFilter(userService,environment);
+        AuthenticationFilter authenticationFilter =
+                new AuthenticationFilter(userService, environment);
         authenticationFilter.setAuthenticationManager(authenticationManager());
 
         return authenticationFilter;
