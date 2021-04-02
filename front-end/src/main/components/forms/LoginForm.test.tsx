@@ -55,11 +55,9 @@ describe("Username field changes its value while typing:",()=>{
         render(<LoginForm/>);
         let username=null;
         username=await screen.findByLabelText(/username/i);
-        screen.debug(username);
         
         userEvent.type(username,"sample text");
         username=await screen.findByLabelText(/username/i);
-        screen.debug(username);
 
         expect(username.getAttribute("value")==="sample text").toBeTruthy();
     })
