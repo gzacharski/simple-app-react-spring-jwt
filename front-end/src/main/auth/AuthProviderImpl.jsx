@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { AuthContext } from "./AuthContext";
-import { authUrl } from "src/main/data/urls";
+import { userServiceUrl } from "src/main/data/urls";
 
 type credentialsType = {
-  username: string;
-  password: string;
+  username: string,
+  password: string,
 };
 
 export default class AuthProviderImpl extends Component {
@@ -18,24 +18,19 @@ export default class AuthProviderImpl extends Component {
   }
 
   authenticate = (credentials: credentialsType) => {
-    return Axios.post(authUrl, credentials).then((response) => {
-      console.log(response);
-      if(response.status.valueOf(200)){
-        this.setState({
-          isAuthenticated: true,
-          authorizationToken: response.headers.Authorization
-        });
-        return true;
-      // if (response.data.success === true) {
-      //   this.setState({
-      //     isAuthenticated: true,
-      //     authorizationToken: response.data.token,
-      //   });
-      //   return true;
-      } else {
-        throw new Error("Nieprawidłowe dane uwierzytelniające!");
-      }
-    });
+    return axios
+      .post(`${userServiceUrl}/login`, credentials)
+      .then((response) => {
+        if (response.status.valueOf(200)) {
+          this.setState({
+            isAuthenticated: true,
+            authorizationToken: response.headers.Authorization,
+          });
+          return true;
+        } else {
+          throw new Error("Nieprawidłowe dane uwierzytelniające!");
+        }
+      });
   };
 
   signout = () => {
