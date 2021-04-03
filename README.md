@@ -16,7 +16,7 @@ Microservices written in Spring Boot.
 * discovery service
 * user service (includes H2 database)
 
-# How to launch?
+# How to start?
 1. You will need [Docker](https://www.docker.com/).
 1. Clone the project.
 1. In root folder of the project type in terminal:
