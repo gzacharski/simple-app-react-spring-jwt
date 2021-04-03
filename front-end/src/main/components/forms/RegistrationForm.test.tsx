@@ -59,7 +59,7 @@ describe("Login Form has", () => {
 describe("App send registration request and", () => {
   test("displays registration success message", async () => {
     const promise = Promise.resolve({
-      data: { success: "true", id: "user-sample-id" },
+      data: { success: true, id: "user-sample-id" },
     });
     mockedAxios.post.mockImplementationOnce(() => promise);
 
@@ -76,14 +76,14 @@ describe("App send registration request and", () => {
 
   test("displays registration failur message", async () => {
     const failure = Promise.resolve({
-      data: { success: "false" },
+      data: { success: false },
     });
     mockedAxios.post.mockImplementationOnce(() => failure);
 
     render(<RegistrationForm />);
     act(() => userEvent.click(screen.getByRole("button")));
 
-    const callbackMessage = await screen.findByText(/adres email jest już zajęty/i);
+    const callbackMessage = await screen.findByText(/Adres email jest już zajęty/i);
 
     expect(callbackMessage).toBeInTheDocument();
     expect(callbackMessage).toBeVisible();
