@@ -46,6 +46,7 @@ public class UserController {
         UserDTO responseUserDTO = userService.createUser(userDTO);
 
         CreateUserResponse response = modelMapper.map(responseUserDTO, CreateUserResponse.class);
+        response.setSuccess(true);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
