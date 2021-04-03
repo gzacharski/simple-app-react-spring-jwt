@@ -14,15 +14,19 @@ export default function RegistrationForm() {
     event.preventDefault();
 
     axios
-      .post(userServiceUrl, { name, surname, email, password })
+      .post(`${userServiceUrl}/users`, { name, surname, email, password })
       .then((response) => {
-        if (response.data.success === "true") {
+        console.log(response);
+        if (response.data.success) {
           setCallbackMessage("Użytkownik został zarejestrowany");
         } else {
           setCallbackMessage("Adres email jest już zajęty");
         }
       })
-      .catch((error) => setError(error));
+      .catch((error) => setError(error))
+      .finally(()=>{
+
+      })
   };
 
   return (
@@ -56,27 +60,27 @@ export default function RegistrationForm() {
           </div>
         </div>
         <div className="input-group my-2">
-          <label htmlFor="login-form-password">Password</label>
-          <div className="input-group">
-            <input
-              id="login-form-password"
-              className="form-control"
-              value={email}
-              type="text"
-              placeholder="Type password..."
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </div>
-        </div>
-        <div className="input-group my-2">
           <label htmlFor="login-form-email">Email</label>
           <div className="input-group">
             <input
               id="login-form-email"
               className="form-control"
+              value={email}
+              type="text"
+              placeholder="Type email..."
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+        </div>
+        <div className="input-group my-2">
+          <label htmlFor="login-form-password">Password</label>
+          <div className="input-group">
+            <input
+              id="login-form-password"
+              className="form-control"
               value={password}
               type="password"
-              placeholder="Type email..."
+              placeholder="Type password..."
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
