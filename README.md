@@ -21,9 +21,10 @@ Microservices written in Spring Boot.
 1. Clone the project.
 1. In root folder of the project type in terminal:
     ```shell script
-    docker-compose up
+    docker-compose up --build -d
     ```
-1. After a startup there will be available pages:
+1. Startup may last up to a few minutes.
+1. Eventually there will be available pages:
     * http://localhost:3000 - front-end app
     * http://localhost:8010 - discovery service dashboard
     * http://localhost:{randomPort}/h2-db-console - dashboard H2 in-memory database (Login: admin, Password: admin). \
