@@ -17,7 +17,7 @@ Microservices written in Spring Boot.
 * user service (includes H2 database)
 
 # How to start?
-1. You will need [Docker](https://www.docker.com/).
+1. You will need [Docker](https://www.docker.com/?target=_blank).
 1. Clone the project.
 1. In root folder of the project type in terminal:
     ```shell script
