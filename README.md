@@ -23,6 +23,10 @@ Microservices written in Spring Boot.
     ```shell script
     docker-compose up --build -d
     ```
+    or (definitely faster way):
+    ```shell script
+    docker-compose -f docker-compose-from-dockerhub.yaml up -d 
+    ```
 1. Startup may last up to a few minutes.
 1. Eventually there will be available pages:
     * http://localhost:3000 - front-end app
