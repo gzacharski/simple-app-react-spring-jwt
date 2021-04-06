@@ -27,8 +27,8 @@ Microservices written in Spring Boot.
 1. Eventually there will be available pages:
     * http://localhost:3000 - front-end app
     * http://localhost:8010 - discovery service dashboard
-    * http://localhost:{randomPort}/h2-db-console - dashboard H2 in-memory database (Login: admin, Password: admin). \
-    Port of user service is assigned randomly. Check out its port in discovery service dashboard. 
+    <!-- * http://localhost:{randomPort}/h2-db-console - dashboard H2 in-memory database (Login: admin, Password: admin). \
+    Port of user service is assigned randomly. Check out its port in discovery service dashboard.  -->
 
 # How to stop?
 1. In root folder of the project type in terminal:
