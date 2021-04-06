@@ -1,4 +1,7 @@
-version: "3.9"
+version: "3"
+
+networks: 
+  back-end:
 
 services:
   front-end:
@@ -6,3 +9,29 @@ services:
     build: ./front-end
     ports:
       - 3000:3000
+    
+  discovery:
+    container_name: discovery
+    build: ./back-end/discovery
+    ports:
+      - 8010:8010
+    networks: 
+      - back-end
+
+  gateway: 
+    container_name: gateway
+    build: ./back-end/gateway
+    ports: 
+      - 8020:8020
+    networks: 
+      - back-end
+    depends_on:
+      - discovery
+
+  user-service: 
+    container_name: user-service
+    build: ./back-end/user-service
+    networks: 
+      - back-end
+    depends_on:
+      - gateway
