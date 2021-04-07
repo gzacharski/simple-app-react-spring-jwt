@@ -1,5 +1,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/gzacharski/simple-app-react-spring-jwt)
 ![GitHub contributors](https://img.shields.io/github/contributors/gzacharski/simple-app-react-spring-jwt)
+## [English version below](#english-version)
+
 
 # Description
 Simple app implementing public page, private page, login and registration form. Authentication with JSON Web Token.
@@ -39,3 +41,5 @@ Microservices written in Spring Boot.
     ```shell script
     docker-compose down
     ```
+    
+## [English version](#english-version)
