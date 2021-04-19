@@ -21,11 +21,13 @@ export default class AuthProviderImpl extends Component {
     return axios
       .post(`${userServiceUrl}/login`, credentials)
       .then((response) => {
+        console.log(response)
         if (response.status.valueOf(200)) {
           this.setState({
             isAuthenticated: true,
             authorizationToken: response.headers.Authorization,
           });
+          console.log(this.state.authorizationToken);
           return true;
         } else {
           throw new Error("Nieprawidłowe dane uwierzytelniające!");

@@ -5,8 +5,8 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { LoginForm, RegistrationForm, NavButton } from "src/main/components";
-import { Home, PrivatePage } from "src/main/pages";
+import { RegistrationForm, NavButton } from "src/main/components";
+import { Home, PrivatePage, LoginPage } from "src/main/pages";
 import { AuthProviderImpl } from "src/main/auth";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             <div className="col-10">
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/login" component={LoginForm} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/sign-up" component={RegistrationForm} />
                 <Route path="/private" component={PrivatePage} />
                 <Redirect to="/" />
