@@ -36,7 +36,7 @@ jobs:
     
     - name: Push to DockerHub
       id: docker_build
-      run: docker push gza73/simple-app-react-spring-jwt-back-end-discovery
+      run: docker push gza73/simple-app-react-spring-jwt-back-end-discovery:latest
           
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
