@@ -6,13 +6,13 @@ networks:
 services:
   front-end:
     container_name: front-end
-    build: ./front-end
+    image: gza73/simple-app-react-spring-jwt-front-end:latest
     ports:
       - 3000:3000
     
   discovery:
     container_name: discovery
-    build: ./back-end/discovery
+    image: gza73/simple-app-react-spring-jwt-back-end-discovery:latest
     ports:
       - 8010:8010
     networks: 
@@ -20,7 +20,7 @@ services:
 
   gateway: 
     container_name: gateway
-    build: ./back-end/gateway
+    image: gza73/simple-app-react-spring-jwt-back-end-gateway:latest
     ports: 
       - 8020:8020
     networks: 
@@ -30,7 +30,7 @@ services:
 
   user-service: 
     container_name: user-service
-    build: ./back-end/user-service
+    image: gza73/simple-app-react-spring-jwt-back-end-user-service:latest
     networks: 
       - back-end
     depends_on:
