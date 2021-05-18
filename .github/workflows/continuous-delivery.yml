@@ -25,21 +25,18 @@ jobs:
     - name: Build
       run: mvn spring-boot:build-info --file ./back-end/discovery/pom.xml
       
+    - name: Build docker image
+      run: mvn spring-boot:build-image --file ./back-end/discovery/pom.xml
+      
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with: 
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
-    - name: Build and push to DockerHub
+    - name: Push to DockerHub
       id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-          push: true
-          tags: gza73/simple-app-react-spring-jwt-back-end-discovery:latest
+      run: dokcer push gza73/simple-app-react-spring-jwt-back-end-discovery
           
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
