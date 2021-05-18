@@ -21,11 +21,11 @@ Microservices written in Spring Boot.
 1. Clone the project.
 1. In root folder of the project type in terminal:
     ```shell script
-    docker-compose up --build -d
+    docker-compose up -d
     ```
     or (if you want to build locally - definitely slower way):
     ```shell script
-    docker-compose -f docker-compose-build-locally.yaml up -d 
+    docker-compose -f docker-compose-build-locally.yaml up --build -d 
     ```
 1. Startup may last up to a few minutes.
 1. Eventually there will be available pages:
